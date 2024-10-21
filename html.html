@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Construction</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0; /* Remove default margin */
+            position: relative; /* Allow absolute positioning of logo */
+        }
+        h1 {
+            color: #333;
+            font-size: 48px;
+        }
+        p {
+            color: #555;
+            font-size: 24px;
+        }
+        video {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+        .logo-container {
+            position: absolute; /* Position logo and name in the upper left corner */
+            top: 20px; /* Distance from top */
+            left: 20px; /* Distance from left */
+            display: flex; /* Align logo and text horizontally */
+            align-items: center; /* Center vertically */
+        }
+        .logo {
+            max-width: 100px; /* Set a maximum width for the logo */
+            height: auto; /* Maintain aspect ratio */
+            margin-right: 10px; /* Space between logo and text */
+        }
+        .company-info {
+            font-size: 18px; /* Font size for company info */
+            color: #333; /* Color for company info */
+            text-align: left; /* Align text to the left */
+        }
+        .home-button {
+            margin-top: 20px; /* Space above the button */
+            padding: 10px 20px; /* Padding for the button */
+            font-size: 16px; /* Font size for button text */
+            color: white; /* Text color */
+            background-color: #007BFF; /* Button background color */
+            border: none; /* Remove default border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            text-decoration: none; /* Remove underline */
+        }
+        .home-button:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="images/me.jpg" alt="Logo" class="logo"> <!-- Replace with your logo URL -->
+        <div class="company-info">
+            <strong>Makkelijk-it</strong><br>
+            <span>Contact: /</span><br>
+            <span>Phone: /</span>
+        </div>
+    </div>
+    <div>
+        <h1>Website Under Construction</h1>
+        <video autoplay loop muted>
+            <source src="videos/monk.mp4" type="video/mp4"> <!-- Replace with your video URL -->
+            Your browser does not support the video tag.
+        </video>
+        <p>We're working hard to get this site up and running. Stay tuned!</p>
+        <a href="index.html" class="home-button">Home sweat home</a> <!-- Replace with your homepage URL -->
+    </div>
+</body>
+</html>

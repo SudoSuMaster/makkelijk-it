@@ -23,6 +23,7 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
+    height: 64px; /* Adjust based on your header's padding for consistency */
 }
 
 header .logo img {
@@ -169,13 +170,14 @@ footer {
 /* Update de main-banner stijl om de content goed te positioneren */
 .main-banner {
     position: relative;
-    height: 70vh; /* Hoogte van de banner */
+    height: 70vh; /* Keep this as is */
+    margin-top: 64px; /* Add this to push the banner down below the header */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: white;
-    overflow: hidden; /* Verberg de overflow om te voorkomen dat de afbeeldingen buiten de banner verschijnen */
+    overflow: hidden;
 }
 
 /* Banner content positionering */
@@ -427,7 +429,7 @@ footer {
 /* Style the button inside the overlay */
 .product-content .btn {
     background-color: #fff;
-    color: #000; /* Change button text color */
+    color: #ffffff; /* Change button text color */
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 50px;
@@ -440,20 +442,45 @@ footer {
     color: #fff;
 }
 
-/* Hover effect to grow the entire product */
-.product:hover {
-    transform: scale(1.05);
+/* Rainbow Animation */
+
+
+/* Hover effect for banner h1 */
+.main-banner:hover .banner-content h1 {
+    animation: rainbow 3.5s linear infinite; /* Apply rainbow animation on hover of the banner */
 }
+/* Hover effect to grow the entire product */
+/* Rainbow Animation */
+@keyframes rainbow {
+    0% { color: #FF0000; }
+    14% { color: #FF7F00; }
+    28% { color: #FFFF00; }
+    42% { color: #00FF00; }
+    57% { color: #00FFFF; }
+    71% { color: #0000FF; }
+    85% { color: #4B0082; }
+    100% { color: #FF0000; }
+}
+
+/* Hover effect for product */
+.product:hover .product-content h2 {
+    animation: rainbow 3.5s linear infinite; /* Apply rainbow animation */
+}
+
 
 /* For smaller screens */
 @media (max-width: 768px) {
-    .product-section {
-        grid-template-columns: repeat(2, 1fr); /* Two products per row on medium screens */
-    }
+/* Hover effect for banner h1 */
+.main-banner .banner-content h1:hover {
+    animation: rainbow 3.5s linear infinite; /* Apply rainbow animation */
+}
 
-    @media (max-width: 480px) {
-        .product-section {
-            grid-template-columns: 1fr; /* One product per row on small screens */
-        }
-    }
+}
+
+@media (max-width: 480px) {
+/* Hover effect for banner h1 */
+.main-banner .banner-content h1:hover {
+    animation: rainbow 3.5s linear infinite; /* Apply rainbow animation */
+}
+
 }

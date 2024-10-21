@@ -467,6 +467,13 @@ footer {
     animation: rainbow 3.5s linear infinite; /* Apply rainbow animation */
 }
 
+/* Hover effect for the product */
+.product:hover {
+    transform: scale(1.05); /* Scale up the product slightly */
+    z-index: 1; /* Bring the hovered product on top */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
 
 /* For smaller screens */
 @media (max-width: 768px) {

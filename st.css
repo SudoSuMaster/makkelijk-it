@@ -1,0 +1,459 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #000000;
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+header .logo img {
+    height: 40px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+header nav ul li {
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s;
+}
+
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: transparent;
+    transition: background-color 0.3s, width 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #00ff11;
+}
+
+header nav ul li a:hover::after {
+    background-color: #00ff11;
+    width: 100%;
+}
+
+header .social-icons {
+    display: flex;
+    align-items: center;
+}
+
+header .social-icons a img {
+    height: 24px;
+    margin-left: 0.5rem;
+}
+
+header .menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+header .menu-toggle span {
+    background-color: #fff;
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+    transition: all 0.3s;
+}
+
+main {
+    flex: 1;
+    padding: 5rem 2rem 2rem 2rem; /* Adjust padding to account for fixed header */
+    background-color: #f4f4f4;
+}
+
+footer {
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    header {
+        padding: 0.5rem;
+    }
+
+    header .logo {
+        flex: 1;
+    }
+
+    header nav {
+        display: none;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 100%;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: flex-end;
+        width: auto;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 1rem;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-radius: 4px;
+    }
+
+    header nav ul li {
+        margin: 1rem 0;
+    }
+
+    header .social-icons {
+        flex: 1;
+        justify-content: flex-end;
+    }
+
+    header .menu-toggle {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    header .logo img {
+        height: 30px;
+    }
+
+    header nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    header .social-icons a img {
+        height: 20px;
+        margin-left: 0.5rem;
+    }
+}
+
+/* Beginning of banner */
+/* Banner Styles */
+/* Update de main-banner stijl om de content goed te positioneren */
+.main-banner {
+    position: relative;
+    height: 70vh; /* Hoogte van de banner */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden; /* Verberg de overflow om te voorkomen dat de afbeeldingen buiten de banner verschijnen */
+}
+
+/* Banner content positionering */
+.banner-content {
+    position: absolute; /* Absoluut positioneren zodat het over de afbeeldingen komt */
+    bottom: 20px; /* Margin aan de onderkant */
+    left: 50%;
+    transform: translateX(-50%); /* Horizontaal centreren */
+    max-width: 600px; /* Maximale breedte voor tekstinhoud */
+    z-index: 10; /* Zorg dat de inhoud boven de afbeeldingen ligt */
+}
+
+.banner-content h1 {
+    font-size: 4em;
+    margin: 0;
+    font-weight: 700;
+}
+
+.banner-content p {
+    font-size: 1.5em;
+    margin: 40px 0;
+    font-weight: 300;
+}
+
+.banner-content .btn {
+    background-color: #000000;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1em;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+/* De hover effect voor de knop */
+.banner-content .btn:hover {
+    background-color: #005bb5;
+}
+
+.banner-slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    animation: slide 15s infinite; /* Slide animation */
+}
+
+.banner-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Hide all slides initially */
+    transition: opacity 1s ease-in-out; /* Smooth transition for opacity */
+}
+
+/* Show the first slide */
+.banner-slide:nth-child(1) {
+    opacity: 1;
+    animation: fade 15s infinite; /* Fade in for the first slide */
+}
+
+.banner-slide:nth-child(2) {
+    opacity: 0;
+    animation: fade 15s infinite 5s; /* Fade in for the second slide after 5s */
+}
+
+.banner-slide:nth-child(3) {
+    opacity: 0;
+    animation: fade 15s infinite 10s; /* Fade in for the third slide after 10s */
+}
+
+/* Animation keyframes for sliding effect */
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1; /* Fully visible */
+    }
+    30% {
+        opacity: 1; /* Remain visible */
+    }
+    40% {
+        opacity: 0; /* Fade out */
+    }
+}
+
+.banner-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the container */
+}
+
+
+.main-banner .banner-content {
+    max-width: 600px;
+}
+
+.main-banner h1 {
+    font-size: 4em;
+    margin: 0;
+    font-weight: 700;
+}
+
+.main-banner p {
+    font-size: 1.5em;
+    margin: 40px 0;
+    font-weight: 300;
+}
+
+.main-banner .btn {
+    background-color: #000000;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1em;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+.main-banner .btn:hover {
+    background-color: #005bb5;
+}
+
+/* Ending of banner */
+.btn {
+    padding: 15px 40px;
+    border: none;
+    outline: none;
+    color: #FFF;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 12px;
+    text-decoration: none;
+}
+
+.btn::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+/* glow */
+.btn::before {
+    content: "";
+    background: linear-gradient(
+        45deg,
+        #FF0000, #FF7300, #FFFB00, #48FF00,
+        #00FFD5, #002BFF, #FF00C8, #FF0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height:  calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+    opacity: 0;
+}
+
+@keyframes glowing {
+    0% {background-position: 0 0;}
+    50% {background-position: 400% 0;}
+    100% {background-position: 0 0;}
+}
+
+/* hover */
+.btn:hover::before {
+    opacity: 1;
+}
+
+.btn:active:after {
+    background: transparent;
+}
+
+.btn:active {
+    color: #000;
+    font-weight: bold;
+}
+
+/* Update product section */
+/* Update product section */
+.product-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Display 3 products per row */
+    gap: 10px; /* Reduced gap for less spacing between products */
+    margin-top: 2rem;
+    padding: 0; /* Remove padding to achieve full-width effect */
+    justify-items: center; /* Center the products horizontally */
+}
+
+/* Update individual product style */
+.product {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    width: 100%; /* Set a larger width for the product containers */
+    max-width: 300px; /* Set a maximum width for the product containers */
+    text-align: center;
+}
+
+/* Style the images */
+.product img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Overlay content (text and button) on top of the image */
+.product-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    opacity: 1;
+    transition: transform 0.3s ease;
+}
+
+/* Style the text inside the overlay */
+.product-content h2 {
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* Style the button inside the overlay */
+.product-content .btn {
+    background-color: #fff;
+    color: #000; /* Change button text color */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.product-content .btn:hover {
+    background-color: #005bb5;
+    color: #fff;
+}
+
+/* Hover effect to grow the entire product */
+.product:hover {
+    transform: scale(1.05);
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+    .product-section {
+        grid-template-columns: repeat(2, 1fr); /* Two products per row on medium screens */
+    }
+
+    @media (max-width: 480px) {
+        .product-section {
+            grid-template-columns: 1fr; /* One product per row on small screens */
+        }
+    }
+}

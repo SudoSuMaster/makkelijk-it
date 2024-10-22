@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Makkelijk IT</title>
+    <link rel="stylesheet" href="st.css">
+    <style>
+        /* Slideshow styles */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .portrait-photo {
+            width: 100%;
+            max-width: 300px; /* Adjust as needed */
+        }
+
+        .active {
+            display: block;
+        }
+
+        /* Navigation buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/me.jpg" alt="Logo">
+            <a>Makkelijk-IT©</a>
+        </div>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="html.html">IT-diensten</a></li>
+                <li><a href="html.html">IT-Support</a></li>
+                <li><a href="html.html">Media-diensten</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="html.html">Contact</a></li>
+                <li><a href="html.html">Blog</a></li>
+            </ul>
+        </nav>
+        <div class="social-icons">
+            <a href="https://www.youtube.com/@sudosumaster" target="_blank">
+                <img src="icons/ytt.png" alt="YouTube">
+            </a>
+            <a href="https://www.github.com" target="_blank">
+                <img src="icons/gitt.png" alt="GitHub">
+            </a>
+            <a href="https://www.linkedin.com/in/levanomoermond-999b70215/" target="_blank">
+                <img src="icons/link.png" alt="LinkedIn">
+            </a>
+            <a href="https://www.linkedin.com/in/levanomoermond-999b70215/" target="_blank">
+                <img src="icons/fcb.png" alt="Facebook">
+            </a>
+            <a href="https://www.linkedin.com/in/levanomoermond-999b70215/" target="_blank">
+                <img src="icons/r.png" alt="Reddit">
+            </a>
+        </div>
+    </header>
+
+    <!-- Banner section -->
+    <div class="banner">
+        <h1>Wie zijn wij?</h1>
+    </div>
+
+    <main>
+        <div class="slideshow-container">
+            <!-- Slide 1 -->
+            <div class="mySlides active">
+                <img src="images/me.jpg" alt="Portret" class="portrait-photo">
+                <h2>Over ons</h2>
+                <p>
+                    Hallo! Ik ben Levano en ik werk in de IT als Site Reliability Engineer op een cloudplatform. Na mijn studie in IT-expertise heb ik een passie ontwikkeld voor het delen van mijn kennis met anderen. Samen met mijn partner Leia ben ik deze hobby gestart om mensen kennis te laten maken met de wereld van IT. Ik doe dit omdat ik het leuk vind en omdat ik het belangrijk vind om anderen te helpen.
+
+                    Bij Makkelijk IT geloof ik dat technologie toegankelijk en betaalbaar moet zijn voor iedereen. Een eenvoudige computerupdate of het verwijderen van een virus hoeft niet veel te kosten, ongeacht leeftijd of ervaring. Ik sta klaar om ondersteuning te bieden aan iedereen die dat nodig heeft.
+                    Mijn missie is om een inclusieve digitale wereld te creëren waarin iedereen zich zelfverzekerd voelt om technologie te gebruiken.
+                    Of het nu gaat om IT-lessen, ondersteuning of media-diensten, ik ben hier om te helpen!
+                </p>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="mySlides">
+                <img src="images/cat1.jpg" alt="Portret" class="portrait-photo">
+                <h2>Hallo</h2>
+                <p>
+                    Hallo! Ik ben Leia en ik ben student aan de Hanzehogeschool, waar ik media vormgeving studeer op hbo-niveau. Ik ben erg creatief en heb een sterke affiniteit met computers. Ik help graag mijn oma en vrienden met digitale problemen en vraagstukken. Daarnaast vind ik het leuk om foto’s te maken en video's te editen.
+
+                    Ook kan ik audio- en videomedia omzetten naar digitale formaten en mooie fotoboeken of videoboeken maken. Samen met mijn partner heb ik dit bedrijf als hobby gestart om mijn kennis uit te breiden en mensen te helpen.
+                </p>
+            </div>
+
+            <!-- Navigation buttons -->
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Royaxz All rights reserved. Self made website.</p>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            const slides = document.getElementsByClassName("mySlides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex - 1].style.display = "block";  
+        }
+
+        function changeSlide(n) {
+            slideIndex += n;
+            const slides = document.getElementsByClassName("mySlides");
+            if (slideIndex > slides.length) {slideIndex = 1}
+            if (slideIndex < 1) {slideIndex = slides.length}
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slides[slideIndex - 1].style.display = "block";  
+        }
+    </script>
+</body>
+</html>

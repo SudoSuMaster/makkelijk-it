@@ -61,11 +61,11 @@ header nav ul li a::after {
 }
 
 header nav ul li a:hover {
-    color: #00ff11;
+    color: #b9f5be;
 }
 
 header nav ul li a:hover::after {
-    background-color: #00ff11;
+    background-color: #c9ffcd;
     width: 100%;
 }
 
@@ -91,6 +91,14 @@ header .menu-toggle span {
     width: 25px;
     margin: 4px 0;
     transition: all 0.3s;
+}
+
+header nav.active {
+    display: flex; /* Display the nav when the active class is added */
+}
+
+header nav {
+    display: flex; /* Hide the nav initially */
 }
 
 main {
@@ -373,31 +381,29 @@ footer {
 }
 
 /* Update product section */
-/* Update product section */
 .product-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Automatically fill with a minimum width of 250px */
-    gap: 10px; /* Adjust spacing between items */
-    margin-top: 2rem;
-    padding: 0; /* Remove padding to achieve full-width effect */
-    justify-items: center; /* Center the products horizontally */
+    display: flex; /* Gebruik flexbox */
+    flex-wrap: wrap; /* Zorg ervoor dat producten kunnen doorlopen naar een nieuwe regel */
+    justify-content: center; /* Centreer de producten horizontaal */
+    gap: 20px; /* Ruimte tussen de producten */
+    padding: 20px; /* Optionele padding rondom de grid */
 }
 
-/* Update individual product style */
+/* Update individuele productstijl */
 .product {
     position: relative;
     overflow: hidden;
     border-radius: 5px;
     transition: transform 0.3s ease;
     width: 100%; /* Set a larger width for the product containers */
-    max-width: 300px; /* Set a maximum width for the product containers */
+    max-width: 500px; /* Vergroot de maximale breedte van de productcontainers */
     text-align: center;
 }
 
 /* Style the images */
 .product img {
     width: 100%;
-    height: 100%;
+    height: 500px; /* Stel een vaste hoogte in voor de afbeeldingen */
     object-fit: cover;
     transition: transform 0.5s ease;
 }
@@ -422,18 +428,18 @@ footer {
 /* Style the text inside the overlay */
 .product-content h2 {
     margin-bottom: 10px;
-    font-size: 1.8rem;
+    font-size: 2rem; /* Vergroot de fontgrootte van de titel */
     font-weight: bold;
 }
 
 /* Style the button inside the overlay */
 .product-content .btn {
     background-color: #fff;
-    color: #ffffff; /* Change button text color */
-    padding: 10px 20px;
+    color: #ffffff; /* Change button text color to contrast */
+    padding: 15px 30px; /* Vergroot de padding van de knop */
     text-decoration: none;
     border-radius: 50px;
-    font-size: 1rem;
+    font-size: 1.2rem; /* Vergroot de fontgrootte van de knop */
     transition: background-color 0.3s ease;
 }
 
@@ -441,7 +447,6 @@ footer {
     background-color: #005bb5;
     color: #fff;
 }
-
 /* Rainbow Animation */
 
 
@@ -503,4 +508,94 @@ footer {
     .product-section {
         grid-template-columns: 1fr; /* Show 1 product per row */
     }
+}
+
+
+
+/*#####################################################*/
+/* Banner Styles */
+.banner {
+    background-image: url('images/stl.jpg'); /* Vervang met je eigen afbeeldingspad */
+    background-size: cover; /* Zorgt ervoor dat de afbeelding de hele banner bedekt */
+    background-position: center; /* Centreert de afbeelding */
+    text-align: center; /* Centreert de tekst in de banner */
+    color: white; /* Maak de tekst wit voor beter contrast */
+    padding: 150px 20px; /* Verhoog de padding voor meer hoogte (150px boven en onder) */
+    position: relative; /* Positie instellen voor absolute elementen als dat nodig is */
+}
+
+/* Style for the banner heading */
+.banner h1 {
+    font-size: 2.5em; /* Font size for the heading */
+    margin: 0; /* Remove margin */
+}
+
+/* Style for the banner paragraph */
+.banner p {
+    font-size: 1.2em; /* Font size for the paragraph */
+}
+
+.about-section {
+    display: flex;
+    margin-top: 64px; /* Dit zorgt ervoor dat de sectie onder de header staat */
+    padding: 20px;
+}
+
+.about-left {
+    flex: 1; /* Neem 50% van de breedte in */
+    padding-right: 20px; /* Ruimte tussen de twee secties */
+}
+
+.about-right {
+    flex: 1; /* Neem ook 50% van de breedte in */
+    position: relative; /* Nodig voor slideshow */
+}
+
+.about-title {
+    text-align: center; /* Centreert de titel */
+    margin: 20px 0; /* Voeg wat ruimte boven en onder de titel toe */
+}
+
+.portrait-photo {
+    width: 80%; /* Set a smaller width */
+    max-width: 300px; /* Max width to avoid large images */
+    margin: 0 auto; /* Center the image horizontally */
+    display: block; /* Display block to use margin auto */
+    border-radius: 10px; /* Optional styling */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Optional shadow */
+}
+.slideshow-container {
+    position: relative;
+    max-width: 100%; /* Zorg dat de slideshow niet te breed is */
+    margin: auto;
+}
+
+.mySlides {
+    display: none; /* Verberg alle slides standaard */
+}
+
+/* Navigation buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white; /* Tekstkleur wit voor contrast */
+    background-color: black; /* Achtergrondkleur zwart */
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 3px; /* Ronde hoeken */
+    user-select: none; /* Voorkomt dat de tekst geselecteerd kan worden */
+}
+
+.next {
+    right: 0;
+}
+
+.prev:hover, .next:hover {
+    background-color: black; /* Blijf zwart bij hover */
+    color: white; /* Tekstkleur blijft wit bij hover */
 }
